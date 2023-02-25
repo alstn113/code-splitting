@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
+import BaseLayout from "./components/layouts/BaseLayout";
+import SuspenseTest from "./pages/SuspenseTest";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -11,7 +12,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<BaseLayout />}>
         <Route
           path=""
           element={
@@ -44,6 +45,7 @@ const App = () => {
             </Suspense>
           }
         />
+        <Route path="suspense" element={<SuspenseTest />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import UserDropdown from "../components/UserDropdown";
 import { ErrorBoundary } from "react-error-boundary";
 import { QueryErrorResetBoundary } from "@tanstack/react-query";
+import ErrorFallback from "../components/ErrorFallback";
 
 const Home = () => {
   return (
@@ -22,21 +23,6 @@ const Home = () => {
         </ErrorBoundary>
       )}
     </QueryErrorResetBoundary>
-  );
-};
-
-interface ErrorFallbackProps {
-  error: Error;
-  resetErrorBoundary: () => void;
-}
-
-const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
-  return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
-    </div>
   );
 };
 

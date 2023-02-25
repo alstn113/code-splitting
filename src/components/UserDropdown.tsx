@@ -10,7 +10,7 @@ interface User {
 const UserDropdown = () => {
   const getUser = async () => {
     const { data } = await axios.get<User>(
-      "https://jsonplaceholder.typicode.com/users/a"
+      "https://jsonplaceholder.typicode.com/users/1"
     );
     return data;
   };
