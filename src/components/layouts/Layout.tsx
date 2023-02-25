@@ -1,22 +1,18 @@
 import styled from "@emotion/styled";
 import { Link, Outlet } from "react-router-dom";
-import FullHeightScreen from "../base/FullHeightScreen";
 
-// 이거는 content안에 스크롤 돌리는 것
-// 이것 같은 경우는 이전 페이지로 돌아가면 스크롤이 다시 올라감
+// full height를 뺄 경우 스크롤이 저장됨.
 
-const BaseLayout = () => {
+const Layout = () => {
   return (
-    <FullHeightScreen>
+    <>
       <Navigation style={{ display: "flex", gap: "1rem" }}>
         <Link to={"/"}>Home</Link>
         <Link to={"/dashboard"}>Dashboard</Link>
         <Link to={"/post"}>post</Link>
       </Navigation>
-      <Content>
-        <Outlet />
-      </Content>
-    </FullHeightScreen>
+      <Outlet />
+    </>
   );
 };
 
@@ -38,4 +34,4 @@ const Content = styled.div`
   overflow-x: hidden;
 `;
 
-export default BaseLayout;
+export default Layout;
