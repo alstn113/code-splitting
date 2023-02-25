@@ -7,10 +7,7 @@ const BaseLayout = () => {
     <FullHeightScreen>
       <Navigation style={{ display: "flex", gap: "1rem" }}>
         <Link to={"/"}>Home</Link>
-        <Link to={"/about"}>About</Link>
-        <Link to={"/help"}>Help</Link>
         <Link to={"/dashboard"}>Dashboard</Link>
-        <Link to={"/suspense"}>Suspense</Link>
       </Navigation>
       <Content>
         <Outlet />
