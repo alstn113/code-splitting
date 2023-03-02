@@ -12,7 +12,7 @@ const PostPage = () => {
   return (
     <Container>
       {posts.map((post) => (
-        <ContentWrapper to={`/post/${post.id}`}>
+        <ContentWrapper key={post.id} to={`/post/${post.id}`}>
           <h1>{post.title}</h1>
           <p>{post.body}</p>
         </ContentWrapper>

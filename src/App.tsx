@@ -5,6 +5,7 @@ import BaseLayout from "./components/layouts/BaseLayout";
 import PostPage from "./pages/PostPage";
 import PostDetailPage from "./pages/PostDetailPage";
 import Layout from "./components/layouts/Layout";
+import Loading from "./components/Loading";
 
 const Home = lazy(() => import("./pages/Home"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -16,7 +17,7 @@ const App = () => {
         <Route
           path=""
           element={
-            <Suspense fallback={<div>home loading</div>}>
+            <Suspense fallback={<Loading />}>
               <Home />
             </Suspense>
           }
@@ -24,12 +25,19 @@ const App = () => {
         <Route
           path="dashboard/*"
           element={
-            <Suspense fallback={<div>dashboard loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <Dashboard />
             </Suspense>
           }
         />
-        <Route path="post" element={<PostPage />} />
+        <Route
+          path="post"
+          element={
+            <Suspense fallback={<Loading />}>
+              <PostPage />
+            </Suspense>
+          }
+        />
         <Route path="post/:id" element={<PostDetailPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
