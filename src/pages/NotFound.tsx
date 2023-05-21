@@ -7,7 +7,10 @@ const NotFound = () => {
   return (
     <div>
       <div>
-        <ProgressBar duration="10s" animation={toggle ? "play" : "done"} />
+        <ProgressBar
+          duration="10s"
+          progressStatus={toggle ? "playing" : "completed"}
+        />
       </div>
       <div>
         <button onClick={() => setToggle(!toggle)}>Toggle</button>

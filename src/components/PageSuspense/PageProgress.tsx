@@ -12,7 +12,7 @@ const PageProgress = () => {
   return (
     <ProgressContainer>
       <ProgressBar
-        animation={isPageLoaded ? "done" : "play"}
+        progressStatus={isPageLoaded ? "completed" : "playing"}
         duration={`${API_REQUEST_TIMEOUT / 1000}s`} // 5s
       />
     </ProgressContainer>
