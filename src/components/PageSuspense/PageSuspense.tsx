@@ -5,8 +5,7 @@ import PageSuspenseProvider, {
   SetPageLoadedContext,
   SuspenseFallbackContext,
 } from "./Provider";
-
-import styles from "./styles.module.scss";
+import { ContentContainer, FallbackContainer } from "./PageSuspense.styles";
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -28,7 +27,7 @@ const SuspenseContainer = ({ children }: ProviderProps) => {
     useEffect(() => {
       setPageLoaded && setPageLoaded(false);
     }, []);
-    return <div className={styles.fallback}>{fallbackRef.current}</div>;
+    return <FallbackContainer>{fallbackRef.current}</FallbackContainer>;
   };
 
   return (
@@ -56,7 +55,7 @@ const PageChildrenWrapper = (children: JSX.Element) => {
     return () => context.setFallback(null);
   }, [children]);
 
-  return <div className={styles.content}>{children}</div>;
+  return <ContentContainer>{children}</ContentContainer>;
 };
 
 const PageSuspense = Object.assign(SuspenseContainer, {

@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { Link, Outlet } from "react-router-dom";
 import FullHeightScreen from "../base/FullHeightScreen";
+import { Suspense } from "react";
+import PageSuspense from "../PageSuspense/PageSuspense";
 
 // 이거는 content안에 스크롤 돌리는 것
 // 이것 같은 경우는 이전 페이지로 돌아가면 스크롤이 다시 올라감
@@ -14,7 +16,12 @@ const BaseLayout = () => {
         <Link to={"/post"}>post</Link>
       </Navigation>
       <Content>
-        <Outlet />
+        {/* Page Suspense */}
+        <Suspense>
+          <PageSuspense>
+            <Outlet />
+          </PageSuspense>
+        </Suspense>
       </Content>
     </FullHeightScreen>
   );

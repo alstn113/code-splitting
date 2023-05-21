@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import PageSuspense from "../components/PageSuspense/PageSuspense";
 
 const Dashboard = () => {
   // These routes are defined when this component is loaded on demand via
@@ -37,7 +38,7 @@ const DashboardLayout = () => {
 };
 
 const DashboardIndex = () => {
-  return (
+  return PageSuspense.subscribe(
     <div>
       <h2>Dashboard Index</h2>
     </div>
@@ -45,7 +46,7 @@ const DashboardIndex = () => {
 };
 
 const Messages = () => {
-  return (
+  return PageSuspense.subscribe(
     <div>
       <h2>Messages</h2>
       <ul>

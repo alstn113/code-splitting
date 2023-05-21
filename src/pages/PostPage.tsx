@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import PostAPI, { Post } from "../lib/api/post";
+import PageSuspense from "../components/PageSuspense/PageSuspense";
 
 const PostPage = () => {
   const { data } = useQuery<Post[]>(["getPosts"], PostAPI.getPosts, {
@@ -9,7 +10,7 @@ const PostPage = () => {
   });
   const posts = data as Post[]; // suspense
 
-  return (
+  return PageSuspense.subscribe(
     <Container>
       {posts.map((post) => (
         <ContentWrapper key={post.id} to={`/post/${post.id}`}>

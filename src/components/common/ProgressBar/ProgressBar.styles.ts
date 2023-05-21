@@ -1,8 +1,8 @@
-import { css, keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css, keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export const Container = styled.div<{
-  status: 'play' | 'done' | 'pending' | 'unset';
+  status: "play" | "done" | "pending" | "unset";
 }>`
   width: 100%;
   height: 4px;
@@ -11,7 +11,7 @@ export const Container = styled.div<{
   background-color: #d5dedf;
 
   ${({ status }) => {
-    if (status === 'play') {
+    if (status === "play") {
       return css`
         div {
           animation-play-state: running;
@@ -21,7 +21,7 @@ export const Container = styled.div<{
           animation: ${play};
         }
       `;
-    } else if (status === 'done') {
+    } else if (status === "done") {
       return css`
         animation: ${done} 0.2s linear forwards 0.5s;
 
