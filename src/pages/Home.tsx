@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
-import { QueryErrorResetBoundary } from "@tanstack/react-query";
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import LoadingSpinner from "../components/common/LoadingSpinner";
-import ErrorFallback from "../components/ErrorFallback";
-import PostContents from "../components/PostContents";
-import PageSuspense from "../components/PageSuspense/PageSuspense";
+import styled from '@emotion/styled';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import LoadingSpinner from '../components/common/LoadingSpinner';
+import ErrorFallback from '../components/ErrorFallback';
+import PostContents from '../components/PostContents';
+import PageSuspense from '../components/PageSuspense/PageSuspense';
 
 const Home = () => {
   return PageSuspense.subscribe(
     <Container>
       <h1>Suspense Test</h1>
       <Wrapper>
-        {[1, 0, 0, 1].map((id, idx) => (
+        {[-1, 1, 2, -2].map((id, idx) => (
           <ContentWrapper key={idx}>
             <QueryErrorResetBoundary>
               {({ reset }) => (
